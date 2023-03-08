@@ -39,7 +39,7 @@ play = True
 while play:
     # player choise - 0, 1 or 2
     player_choose = int(input('What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors: '))
-    while player_choose != 0 and player_choose != 1 and player_choose != 2:
+    while player_choose not in range(0, 3):
         player_choose = int(input('Type 0 for Rock, 1 for Paper or 2 for Scissors: '))
     # computer choose
     computer_choose = randrange(0, 3)
