@@ -32,16 +32,16 @@ def check_game(player, computer):
         print(lose)
     elif sum(computer) > 21:
         print(win)
-    elif sum(player) == 21:
-        print(win)
-    elif sum(computer) == 21:
-        print(lose)
     elif sum(player) and sum(computer) <= 21:
         if sum(player) > sum(computer):
             print(win)
         elif sum(player) < sum(computer):
             print(lose)
-        else:
+        elif sum(player) == 21:
+            print(win)
+        elif sum(computer) == 21:
+            print(lose)
+        elif sum(player) == sum(computer):
             print(draw)
 
 black_jack = True
