@@ -10,3 +10,4 @@ list of projects:
 9. secret auction
 10. calc
 11. black jack
+12. the number guessing game
