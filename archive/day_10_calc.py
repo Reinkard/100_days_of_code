@@ -90,26 +90,30 @@ def exponentiation(num_1, num_2) -> float:
 operation = {'+': addition, '-': substraction, '*': multiplication,
              '/': division, '%': modulus, '**': exponentiation}
 
-print(logo)
-calculator = True
-while calculator:
-    first_number = float(input('What`s the first number?: '))
-    calculate_1st_number = True
-    while calculate_1st_number:
-        for keys in operation.keys():
-            print(*keys, sep='')
-        choise = input('Pick an operation: ')
-        second_number = float(input('What`s the next number?: '))
-        funct = operation[choise]
-        first_number = funct(first_number, second_number)
-        choise_with_result = input(
-            f'Type "y" to continue with {first_number}, "n" to a new calculation or "e" to exit: ')
-        while choise_with_result not in ['y', 'n', 'e']:
+def calc():
+    print(logo)
+    calculator = True
+    while calculator:
+        first_number = float(input('What`s the first number?: '))
+        calculate_1st_number = True
+        while calculate_1st_number:
+            for keys in operation.keys():
+                print(*keys, sep='')
+            choise = input('Pick an operation: ')
+            second_number = float(input('What`s the next number?: '))
+            funct = operation[choise]
+            first_number = funct(first_number, second_number)
             choise_with_result = input(
                 f'Type "y" to continue with {first_number}, "n" to a new calculation or "e" to exit: ')
-        if choise_with_result == 'n':
-            calculate_1st_number = False
-        elif choise_with_result == 'e':
-            calculate_1st_number = False
-            calculator = False
-print('Goodbye!')
+            while choise_with_result not in ['y', 'n', 'e']:
+                choise_with_result = input(
+                    f'Type "y" to continue with {first_number}, "n" to a new calculation or "e" to exit: ')
+            if choise_with_result == 'n':
+                calculate_1st_number = False
+            elif choise_with_result == 'e':
+                calculate_1st_number = False
+                calculator = False
+    print('Goodbye!')
+
+
+calc()

@@ -44,34 +44,37 @@ def check_game(player, computer):
         elif sum(player) == sum(computer):
             print(draw)
 
-black_jack = True
-while black_jack:
-    player_hand = []
-    computer_hand = []
+def black_jack_game():
+    black_jack = True
+    while black_jack:
+        player_hand = []
+        computer_hand = []
 
-    start_game = input('Do you want to play a game of BlackJack?: Type "y" or "n": ')
-    while start_game not in ['y', 'n']:
         start_game = input('Do you want to play a game of BlackJack?: Type "y" or "n": ')
+        while start_game not in ['y', 'n']:
+            start_game = input('Do you want to play a game of BlackJack?: Type "y" or "n": ')
 
-    if start_game == 'y':
-        player_hand, computer_hand = game(player_hand, computer_hand, 2)
-        continue_game = True
-        while continue_game:
-            if sum(player_hand) >= 21:
-                check_game(player_hand, computer_hand)
-                continue_game = False
-            else:
-                user_choice = input(f"Your cards: {player_hand}, current score: {sum(player_hand)}\n"
-                   f"Computers cards: {computer_hand[:-1]}\n"
-                   f"Type 'y' to get another card or 'n' to pass: ")
-                while user_choice not in ['y', 'n']:
-                    user_choice = input("Please type 'y' or 'n': ")
-                if user_choice == 'y':
-                    player_hand, computer_hand = game(player_hand, computer_hand, 1)
-                else:
+        if start_game == 'y':
+            player_hand, computer_hand = game(player_hand, computer_hand, 2)
+            continue_game = True
+            while continue_game:
+                if sum(player_hand) >= 21:
                     check_game(player_hand, computer_hand)
                     continue_game = False
+                else:
+                    user_choice = input(f"Your cards: {player_hand}, current score: {sum(player_hand)}\n"
+                    f"Computers cards: {computer_hand[:-1]}\n"
+                    f"Type 'y' to get another card or 'n' to pass: ")
+                    while user_choice not in ['y', 'n']:
+                        user_choice = input("Please type 'y' or 'n': ")
+                    if user_choice == 'y':
+                        player_hand, computer_hand = game(player_hand, computer_hand, 1)
+                    else:
+                        check_game(player_hand, computer_hand)
+                        continue_game = False
 
-    elif start_game == 'n':
-        black_jack = False
-print('Goodbye!')
+        elif start_game == 'n':
+            black_jack = False
+    print('Goodbye!')
+
+black_jack_game()
