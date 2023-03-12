@@ -1,314 +1,32 @@
 from random import randrange, choice, shuffle
 from os import system
 
+
 def day1_project():
-    """ 
-    day 1 project: band name generator
-    """
-    def band_name(city, pets_name):
-        """
-        Print your band name
-        """
-        print('Your band name is', city, pets_name)
-
-
-    print('Welcome to the Band Name Generator.')
-    city = input('What`s name of the city you grew up in? \n')
-    pets_name = input('What`s you pets name? \n')
-    band_name(city, pets_name)
+    from archive.day_01_band_name_generator import band_name
     input("Press Enter to continue...\n")
 
-
 def day2_project():
-    """
-    day 2 project: tip calculator
-    """
-    def pay(bill, percentage, people):
-        """
-        Percentage to give + bill on peoples persons
-        """
-        return '{:.2f}'.format((percentage / 100 * bill + bill) / people)
-
-
-    print('Welcome to the tip calculator.')
-    bill = float(input('What is the total bill? $'))
-    percentage = int(input('What percentage tip would you like to give? 10, 12 or 15? %'))
-    while percentage != 10 and percentage != 12 and percentage != 15:
-        percentage = int(input('What percentage tip would you like to give? 10, 12 or 15? %'))
-    people = int(input('How mant people to split the bill? '))
-    print('Each person should pay:', pay(bill, percentage, people), '$')
+    from archive.day_02_tip_calculator import tip_calculator
     input("Press Enter to continue...\n")
 
 def day3_project():
-    """
-    day 3 project: treasury island
-    """
-    print('''
-*******************************************************************************
-          |                   |                  |                     |
- _________|________________.=""_;=.______________|_____________________|_______
-|                   |  ,-"_,=""     `"=.|                  |
-|___________________|__"=._o`"-._        `"=.______________|___________________
-          |                `"=._o`"=._      _`"=._                     |
- _________|_____________________:=._o "=._."_.-="'"=.__________________|_______
-|                   |    __.--" , ; `"=._o." ,-"""-._ ".   |
-|___________________|_._"  ,. .` ` `` ,  `"-._"-._   ". '__|___________________
-          |           |o`"=._` , "` `; .". ,  "-._"-._; ;              |
- _________|___________| ;`-.o`"=._; ." ` '`..*. . "-._ /_______________|_______
-|                   | |o;    `"-.o`"=._``  '` " ,__.--o;   |
-|___________________|_| ;     (#) `-.o `"=.`_.--"_o.-; ;___|___________________
-____/______/______/___|o;._    "      `".o|o_.--"    ;o;____/______/______/____
-/______/______/______/_"=._o--._        ; | ;        ; ;/______/______/______/_
-____/______/______/______/__"=._o--._   ;o|o;     _._;o;____/______/______/____
-/______/______/______/______/____"=._o._; | ;_.--"o.--"_/______/______/______/_
-____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
-/______/______/______/______/______/______/______/______/______/______/______/
-*******************************************************************************
-''')
-    def part_1(choose):
-        if choose == 'left':
-            choose_2 = input('Do you swim of wait? Type swim or wait: ')
-            part_2(choose_2)
-        else:
-            print('Fall into a hole. Game Over')
-
-
-    def part_2(choose):
-        if choose == 'wait':
-            choose_3 = input('Which door do you choose? Type red, blue or yellow: ')
-            part_3(choose_3)
-        else:
-            print('Attacket by trout. Game Over')
-
-
-    def part_3(choose):
-        if choose == 'red':
-            print('Burned by fire. Game Over.')
-        elif choose == 'blue':
-            print('Eaten by beasts. Game Over.')
-        elif choose == 'yellow':
-            print('''
-8b        d8                                                                               88              
- Y8,    ,8P                                                                                ""              
-  Y8,  ,8P                                                                                                 
-   "8aa8" ,adPPYba,  88       88    ,adPPYYba, 8b,dPPYba,  ,adPPYba,    8b      db      d8 88 8b,dPPYba,   
-    `88' a8"     "8a 88       88    ""     `Y8 88P'   "Y8 a8P_____88    `8b    d88b    d8' 88 88P'   `"8a  
-     88  8b       d8 88       88    ,adPPPPP88 88         8PP"""""""     `8b  d8'`8b  d8'  88 88       88  
-     88  "8a,   ,a8" "8a,   ,a88    88,    ,88 88         "8b,   ,aa      `8bd8'  `8bd8'   88 88       88  
-     88   `"YbbdP"'   `"YbbdP'Y8    `"8bbdP"Y8 88          `"Ybbd8"'        YP      YP     88 88       88  
-                                                                                                           
-            ''')
-        else:
-            print('Game Over')
-
-    while True:
-        print('Welcome to Treasure Island. Your mission is to find the treasure.')
-        choose_1 = input('You are at the cross road. Where do you want to go? Type left of right: ')
-        part_1(choose_1)
-        continue_choise = input("Do you want to play again? Type 'y' or 'n': ")
-        while continue_choise not in ['y', 'n']:
-            continue_choise = input("Do you want to play again? Type 'y' or 'n': ")
-        if continue_choise == 'n':
-            break
+    from archive.day_03_treasury_island import treasury_island
     input("Press Enter to continue...\n")
 
 
 def day4_project():
-    """
-    day 4 project: rock paper scissors
-    """
-    rock = '''
-    _______
----'   ____)
-      (_____)
-      (_____)
-      (____)
----.__(___)
-'''
-
-    paper = '''
-    _______
----'   ____)____
-          ______)
-          _______)
-         _______)
----.__________)
-'''
-
-    scissors = '''
-    _______
----'   ____)____
-          ______)
-       __________)
-      (____)
----.__(___)
-'''
-
-    win = 0
-    lose = 0
-    draw = 0
-
-    text_play_again = 'Do you want to play again? Type y or n: '
-
-    choose_picture = [rock, paper, scissors]
-
-    play = True
-    while play:
-        # player choise - 0, 1 or 2
-        player_choose = int(input('What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors: '))
-        while player_choose not in range(0, 3):
-            player_choose = int(input('Type 0 for Rock, 1 for Paper or 2 for Scissors: '))
-        # computer choose
-        computer_choose = randrange(0, 3)
-        # draw
-        if player_choose == computer_choose:
-            print(f'Computer choose: \n {choose_picture[computer_choose]}')
-            print(f'You choose: \n {choose_picture[player_choose]}')
-            print('It`s a draw!')
-            draw += 1
-            play_again = input(f'Score: \nWin: {win}, Lose: {lose}, Draw: {draw} \n{text_play_again}')
-        # win
-        elif player_choose == computer_choose + 1 or computer_choose - player_choose == 2:
-            print(f'Computer choose: \n {choose_picture[computer_choose]}')
-            print(f'You choose: \n {choose_picture[player_choose]}')
-            print('You won!')
-            win += 1
-            play_again = input(f'Score: \nWin: {win}, Lose: {lose}, Draw: {draw} \n{text_play_again}')
-        # lose
-        elif computer_choose == player_choose + 1 or player_choose - computer_choose == 2:
-            print(f'Computer choose: \n {choose_picture[computer_choose]}')
-            print(f'You choose: \n {choose_picture[player_choose]}')
-            print('You lose!')
-            lose += 1
-            play_again = input(f'Score: \nWin: {win}, Lose: {lose}, Draw: {draw} \n{text_play_again}')
-        # if play again is No
-        if play_again == 'n':
-            play = False
-
-    print(f'The final score is: \nWin: {win}, Lose: {lose}, Draw: {draw}\n Goodbye!')
+    from archive.day_04_rock_paper_scissors import rock_paper_scissors
     input("Press Enter to continue...\n")
 
 
 def day5_project():
-    """
-    day 5 project: password generator
-    """
-    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-    numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-    symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
-
-    print("Welcome to the PyPassword Generator!")
-    pg_letters = int(input(f"How many letters would you like in your password?\n")) 
-    pg_symbols = int(input(f"How many symbols would you like?\n"))
-    pg_numbers = int(input(f"How many numbers would you like?\n"))
-    pg_num_of_passwords = int(input("How many passwords would you like?\n"))
-    for passwords in range(pg_num_of_passwords):
-        result = []
-        for let in range(pg_letters):
-            result.append(choice(letters))
-        for sym in range(pg_symbols):
-            result.append(choice(symbols))
-        for num in range(pg_numbers):
-            result.append(choice(numbers))
-        shuffle(result)
-        print(*result, sep='')
+    from archive.day_05_password_generator import password_generator
     input("Press Enter to continue...\n")
 
 
 def day7_project():
-    """
-    day 7 project: hangman
-    """
-    stages = ['''
-    +---+
-     |   |
-     O   |
-    /|\  |
-    / \  |
-         |
-    =========
-    ''', 
-    '''
-    +---+
-     |   |
-     O   |
-    /|\  |
-    /    |
-         |
-    =========
-    ''', 
-    '''
-    +---+
-     |   |
-     O   |
-    /|\  |
-         |
-         |
-    =========
-    ''', 
-    '''
-    +---+
-     |   |
-     O   |
-    /|   |
-         |
-         |
-    =========''', 
-    '''
-    +---+
-     |   |
-     O   |
-     |   |
-         |
-         |
-    =========
-    ''', 
-    '''
-    +---+
-     |   |
-     O   |
-         |
-         |
-         |
-    =========
-    ''', 
-    '''
-    +---+
-     |   |
-         |
-         |
-         |
-         |
-    =========
-    ''']
-    # словник загадуваних слів
-    word_list = ['mouse', 'keyboard', 'monitor', 'laptop'] 
-
-    word_choose = choice(word_list)  # вибір слова
-    lives = 6  # кількість спроб
-    game = True
-    word = []  # пусте слово "_ _ _ _", довжина якого залежить від довжини загадуваного слова
-    for _ in range(len(word_choose)):
-        word.append('_')
-
-    while game:
-        print('Word is: ', *word, stages[lives])
-        letter_choose = input(
-            f'You have {lives} lives left! Guess a letter: ').lower()
-        # йде перевірка - якщо загадувана буква є у слові - то символ "_" заміняється на цю букву
-        for number_of_string in range(len(word_choose)):
-            if letter_choose == word_choose[number_of_string]:
-                word[number_of_string] = letter_choose
-        # якщо букви у слові немає - віднімається одне життя. Якщо значення 0 - гра закінчується
-        if letter_choose not in word_choose:
-            lives -= 1
-            if lives == 0:
-                print('Game over!')
-                game = False
-        # якщо символів "_" більше не залишилось - гру закінчено, гравець виграв
-        if '_' not in word:
-            print('You win! The word is', word_choose)
-            game = False
+    from archive.day_07_hangman import hangman
     input("Press Enter to continue...\n")
 
 
