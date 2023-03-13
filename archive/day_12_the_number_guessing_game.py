@@ -14,7 +14,8 @@ def choose_difficulty():
 
 
 def check_number(guess_num, lives):
-    while True:
+    player_num = 0
+    while player_num != guess_num:
         print(f"You have {lives} attempts to guess the number.")
         player_num = int(input("Make a guess: ")) # make a guess a number
         if guess_num < player_num:
@@ -23,12 +24,10 @@ def check_number(guess_num, lives):
             print("Too low!")
         elif guess_num == player_num:
             print(f"You won! It is {player_num}!")
-            break
         if lives > 1: # if lives > 1 - player lose the one life
                 lives -= 1
         else:
             print("You lose!") # if lives = 0 - game over
-            break
 
 
 def make_number():
