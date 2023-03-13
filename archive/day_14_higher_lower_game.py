@@ -121,14 +121,14 @@ instagram_followers = [
 def higher_lower():
     input('Вітаю в грі більше-менше! Натисни Enter, щоб розпочати...')
     system('clear')
-    count = 0
-    instagram_account_1 = randint(0, len(instagram_followers) - 1)
-    play_again = ''
+    count = 0 # початкове значення очок
+    instagram_account_1 = randint(0, len(instagram_followers) - 1) # вибір першого аккаунту з бази
+    play_again = '' # початкове значення вибору повторної гри
     while True:
-        instagram_account_2 = randint(0, len(instagram_followers) - 1)
+        instagram_account_2 = randint(0, len(instagram_followers) - 1) # вибір другого аккаунту з бази
 
         while instagram_account_1 == instagram_account_2: # якщо раптом аккаунти будуть одинакові
-            instagram_account_2 = randint(0, len(instagram_followers))
+            instagram_account_2 = randint(0, len(instagram_followers)) # перевибір другого аккаунта
         
         a = f"{instagram_followers[instagram_account_1]['name']}, {instagram_followers[instagram_account_1]['description']}, з країни: {instagram_followers[instagram_account_1]['country']}\n"
         b = f"{instagram_followers[instagram_account_2]['name']}, {instagram_followers[instagram_account_2]['description']}, з країни: {instagram_followers[instagram_account_2]['country']}\n"
@@ -137,6 +137,7 @@ def higher_lower():
         while player_choice not in ['A', 'B']:
             player_choice = input(f"{a} vs\n{b}\nУ кого більше підписників? Введи 'А' або 'В': ").upper()
         
+        # виведення результату порівняння підписників аккаунтів
         if instagram_followers[instagram_account_1]['follower_count'] > instagram_followers[instagram_account_2]['follower_count'] and player_choice == 'A':
             count += 1
             system('clear')
