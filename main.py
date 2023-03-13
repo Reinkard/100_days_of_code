@@ -55,6 +55,11 @@ def day12_project():
     input("Press Enter to continue...\n")
 
 
+def day14_project():
+    from archive.day_14_higher_lower_game import higher_lower
+    input("Press Enter to continue...\n")
+
+
 project_functions = {
     "1": day1_project,
     "2": day2_project,
@@ -66,7 +71,8 @@ project_functions = {
     "9": day9_project,
     "10": day10_project,
     "11": day11_project,
-    "12": day12_project
+    "12": day12_project,
+    "14": day14_project,
 }
 
 while True:
@@ -81,7 +87,8 @@ while True:
                         "9. secret auction\n"
                         "10. calc\n"
                         "11. black jack\n"
-                        "12. the number guessing game"
+                        "12. the number guessing game\n"
+                        "14. higher lower game\n"
                         "or q to quit\n"
                         "enter: "
                         )
